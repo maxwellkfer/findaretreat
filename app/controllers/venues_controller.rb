@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
   def index
     if params[:category]
-      @venue = Venue.where("category LIKE?", "%#{params[:category]}%")
+      @venues = Venue.joins(:category).where("categories.name LIKE ?", "%#{params[:category]}%")
     else
       @venues = Venue.all
     end
