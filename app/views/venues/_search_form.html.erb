@@ -1,0 +1,4 @@
+<%= simple_form_for('', url: venues_path, method: :get) do |f| %>
+   <%= f.input :category, label: false %>
+  <%= f.submit 'Search' %>
+<% end %>

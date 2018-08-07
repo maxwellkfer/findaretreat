@@ -1,6 +1,10 @@
 class VenuesController < ApplicationController
   def index
-    @venues = Venue.all
+    if params[:category]
+      @venue = Venue.where("category LIKE?", "%#{params[:category]}%")
+    else
+      @venues = Venue.all
+    end
   end
 
   def show
@@ -39,7 +43,7 @@ class VenuesController < ApplicationController
   private
 
   def venue_params
-    params.require(:venue).permit(:name, :address; :email, :description, :price)
+    params.require(:venue).permit(:name, :address, :email, :description, :price)
   end
 
 end

@@ -1,0 +1,8 @@
+<%= simple_form_for @venue do |f| %>
+  <%= f.input :name %>
+  <%= f.input :email %>
+  <%= f.input :desription %>
+  <%= f.input :address %>
+  <%= f.input :price %>
+  <%= f.submit "add a venue", class: "btn btn-primary" %>
+<% end %>
