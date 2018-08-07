@@ -1,0 +1,35 @@
+
+
+<div class="container">
+  <h1 class="text-center" id="venue">Venues</h1>
+  <div class="cards">
+
+    <div class="row">
+      <% @venue.each do |venue| %>
+
+              <!-- Code your cards  here -->
+          <div class="col-xs-12 col-sm-4">
+
+
+
+
+            <div class="card"
+              style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                     url('<%= cl_image_path venue.photo, height: 300, width: 400, crop: :fill %>')">
+              <div class="card-category">Popular</div>
+              <div class="card-description">
+                <h3><%= link_to venue.name, venue_path(venue) %></h3>
+              </div>
+              <a class="card-link" href="#" ></a>
+            </div>
+
+
+
+
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
