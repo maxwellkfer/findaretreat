@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :venues, only: [:index, :show]
 
   resources :users, except: [:index] do
-    resources :venues, only: [:delete, :new, :edit, :create, :update]
+    resources :venues, only: [:delete, :new, :create, :edit, :update]
     resources :bookings
   end
 end

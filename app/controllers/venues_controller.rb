@@ -20,7 +20,7 @@ class VenuesController < ApplicationController
     if @venue.save
       venue_path
     else
-      render user_venues_path
+      render new_user_venue_path
     end
   end
 
@@ -43,7 +43,7 @@ class VenuesController < ApplicationController
   private
 
   def venue_params
-    params.require(:venue).permit(:name, :address, :email, :description, :price)
+    params.require(:venue).permit(:name, :address, :email, :description, :price, :photo)
   end
 
 end
