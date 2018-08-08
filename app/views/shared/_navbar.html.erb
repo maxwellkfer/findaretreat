@@ -3,20 +3,11 @@
   <a href="/" class="navbar-findaretreat-logo">
     <%=image_tag("logo.png")%>
   </a>
-
   <!-- Right Navigation -->
   <div class="navbar-retreat-right hidden-xs hidden-sm">
-
-    <div class="navbar-retreat-item">
-      <%= link_to image_tag("logo_silence.png", width: 50), root_path %>
-    </div>
-
-    <!-- Links -->
-    <%= link_to "Login", new_user_session_path, class: "navbar-retreat-item navbar-retreat-link" %>
-    <%= link_to "Sign up", new_user_registration_path, class: "navbar-retreat-item navbar-retreat-link" %>
-
-
-
+    <% if user_signed_in? %>
+      <%= link_to "Post a venue", venues_path, class: "navbar-retreat-item navbar-retreat-link" %>
+      <%= link_to "Find a venue", venues_path, class: "navbar-retreat-item navbar-retreat-link" %>
     <!-- Avatar with dropdown menu -->
     <div class="navbar-retreat-item">
       <div class="dropdown">
@@ -24,12 +15,11 @@
         <ul class="dropdown-menu dropdown-menu-right navbar-retreat-dropdown-menu">
           <li><a href="#">Profile</a></li>
           <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Log Out</a></li>
+          <li><%= link_to "Log Out", destroy_user_session_path %></li>
         </ul>
       </div>
     </div>
   </div>
-
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-retreat-item hidden-md hidden-lg">
     <div class="dropdown">
@@ -39,6 +29,14 @@
         <li><a href="#">Other one</a></li>
         <li><a href="#">Other one</a></li>
       </ul>
+      <% else %>
+    <!-- Links -->
+    <%= link_to "Login", new_user_session_path, class: "navbar-retreat-item navbar-retreat-link" %>
+    <%= link_to "Sign up", new_user_registration_path, class: "navbar-retreat-item navbar-retreat-link" %>
+      <% end %>
     </div>
   </div>
 </div>
+
+
+
