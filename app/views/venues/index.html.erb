@@ -1,17 +1,15 @@
-<%= render 'search_form' %>
 <div class="container">
   <h1 class="text-center" id="venue">Venues</h1>
+<%= render 'search_form' %>
   <div class="cards">
     <div class="row">
       <% @venues.each do |venue| %>
       <div class="col-xs-12 col-sm-4">
-        <div class="card">
-          <%= image_tag("zen.png", style:"height: 250px; width: 250px; text-center") %>
+        <div class="venue-card">
+          <%= link_to cl_image_tag(venue.photo_url, width: 200, height: 150, crop: :fill), venue_path(venue) %>
           <div class="card-category"><%= venue.category.name %></div>
           <div class="card-description">
-          <h3><%= venue.name %></h3>
-          </div>
-            <a class="card-link" href="#" ></a>
+            <h3><%= venue.name %></h3>
           </div>
         </div>
       </div>

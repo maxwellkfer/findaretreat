@@ -1,3 +1,17 @@
+.venue-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 225px;
+    height: 305px;
+    margin: 20px auto;
+    border-radius: 5px;
+    background: #fafafa;
+    box-shadow: 3px 3px 10px #c8c8c8;
+    transition: box-shadow 0.3s ease;
+  }
+
 .card {
   height: 375px;
   width: 300px;
@@ -17,15 +31,15 @@
 }
 .card-category {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 30px;
+  left: 160px;
   font-size: 15px;
   text-transform: uppercase;
 }
 .card-description {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  bottom: 20px;
+  left: 100px;
 }
 .card-description h2 {
   font-size: 24px;

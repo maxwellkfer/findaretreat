@@ -7,7 +7,7 @@
       <a class="btn btn-success">book now</a>
     </div>
     <div class="col-xs-12">
-      <div class="show-banner" style="background-image: url('https://essma.eu/member/images/members_gallery/wembley6.jpg')">
+      <%= cl_image_tag(@venue.photo_url, width: 400, height: 300, crop: :fill) %>
         <div class="show-banner-price">
           <h3><%= @venue.price %>€ / day</h3>
         </div>

@@ -6,7 +6,6 @@
   <!-- Right Navigation -->
   <div class="navbar-retreat-right hidden-xs hidden-sm">
 
-
     <% if user_signed_in? %>
       <%= link_to "Post a venue", new_user_venue_path(current_user), class: "navbar-retreat-item navbar-retreat-link" %>
       <%= link_to "Find a venue", venues_path(current_user), class: "navbar-retreat-item navbar-retreat-link" %>
@@ -14,7 +13,7 @@
     <!-- Avatar with dropdown menu -->
     <div class="navbar-retreat-item">
       <div class="dropdown">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-retreat-menu" data-toggle="dropdown">
+        <img src="http://www.lemeilleurdelhomme.com/wp-content/uploads/2012/07/dalai-lama-citations.png" class="avatar dropdown-toggle" id="navbar-retreat-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-retreat-dropdown-menu">
           <li><a href="#">Profile</a></li>
           <li><a href="#">Dashboard</a></li>
