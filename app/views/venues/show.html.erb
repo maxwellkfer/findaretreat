@@ -3,33 +3,34 @@
     <div class="col-xs-8">
       <h1><%= @venue.name.capitalize %></h1>
     </div>
-    <div class="col-xs-2 col-xs-offset-1">
-      <a class="btn btn-success">book now</a>
+    <div class="col-xs-1 col-xs-offset-2">
+      <a class="btn btn-success btn-book">book now</a>
     </div>
-    <div class="col-xs-12">
-      <%= cl_image_tag(@venue.photo_url, width: 400, height: 300, crop: :fill) %>
-        <div class="show-banner-price">
-          <h3><%= @venue.price %>€ / day</h3>
+    <% if @venue.photo_url %>
+      <% photo = cl_image_path(@venue.photo_url) %>
+    <% else %>
+      <% photo = "https://tse2.mm.bing.net/th?id=OIP.--WIa0qH3fLeoTo2E7uHigHaE8&pid=Api" %>
+    <% end %>
+
+      <div class="col-xs-12">
+       <div class="show-banner" style="background-image: url('<%= photo %>')">
+          <div class="show-banner-price">
+            <h3><%= @venue.price %>€ / day</h3>
+          </div>
         </div>
+      </div>
+    <div class="col-xs-12">
+      <div class="venue-show-description">
+        <p><%= @venue.description%></p>
       </div>
     </div>
     <div class="col-xs-12">
-
-    </div>
-    <div class="col-xs-12">
-
+      <div class= "venue-show-footer">
+        <div class="venue-contact-details"><h4> Contact details </h4></div>
+        <div class="venue-email"><p><%= @venue.email %></p></div>
+        <div class="venue-address"><p><%= @venue.address %></p></div>
+      </div>
     </div>
   </div>
-  <!-- <div class="show-card"></div>
-    <div class="card-body">
-      <div class="card-description"><%= @venue.description%></div>
-      <div class="row"><h1> <%= @venue.name.capitalize %> </h1></div>
-      <div class="card-category"><h5> <%= @venue.category.name %></h5></div>
-      <div class="card-price"><%= "Price: #{@venue.price}€" %></div>
-    </div>
-    <div class="card-footer">q
-      <div class="row"><h5> Contact details </h5></div>
-       <div class="row"><%= @venue.email %></div>
-      <div class="row"><%= @venue.address %></div>
-    </div> -->
 </div>
+
