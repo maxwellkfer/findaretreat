@@ -5,8 +5,8 @@
     <div class="row">
       <% @venues.each do |venue| %>
       <div class="col-xs-12 col-sm-4">
-        <div class="card">
-          <%= image_tag("zen.png", style:"height: 250px; width: 250px; text-center") %>
+        <div class="venue-card">
+          <%= cl_image_tag(venue.photo_url, width: 200, height: 200, crop: :fill) %>
           <div class="card-category"><%= venue.category.name %></div>
           <div class="card-description">
           <h3><%= venue.name %></h3>
