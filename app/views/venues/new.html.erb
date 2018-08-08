@@ -1,6 +1,6 @@
 <div class="container">
   <h2>Post a venue :</h2>
-  <%= simple_form_for @venue do |f| %>
+  <%= simple_form_for [current_user, @venue] do |f| %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
     <%= f.input :name %>
