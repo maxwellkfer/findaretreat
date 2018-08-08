@@ -8,8 +8,8 @@
 
 
     <% if user_signed_in? %>
-      <%= link_to "Post a venue", venues_path, class: "navbar-retreat-item navbar-retreat-link" %>
-      <%= link_to "Find a venue", venues_path, class: "navbar-retreat-item navbar-retreat-link" %>
+      <%= link_to "Post a venue", new_user_venue_path(current_user), class: "navbar-retreat-item navbar-retreat-link" %>
+      <%= link_to "Find a venue", venues_path(current_user), class: "navbar-retreat-item navbar-retreat-link" %>
 
     <!-- Avatar with dropdown menu -->
     <div class="navbar-retreat-item">
