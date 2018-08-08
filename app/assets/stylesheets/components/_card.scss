@@ -1,4 +1,4 @@
-.cocktail-card {
+.venue-card {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,15 +31,15 @@
 }
 .card-category {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 30px;
+  left: 160px;
   font-size: 15px;
   text-transform: uppercase;
 }
 .card-description {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  bottom: 20px;
+  left: 100px;
 }
 .card-description h2 {
   font-size: 24px;
