@@ -3,16 +3,12 @@
   <a href="/" class="navbar-findaretreat-logo">
     <%=image_tag("logo.png")%>
   </a>
-
   <!-- Right Navigation -->
   <div class="navbar-retreat-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
       <%= link_to "Post a venue", new_user_venue_path(current_user), class: "navbar-retreat-item navbar-retreat-link" %>
-      <%= link_to "Find a venue", venues_path, class: "navbar-retreat-item navbar-retreat-link" %>
-
-
-
+      <%= link_to "Find a venue", venues_path(current_user), class: "navbar-retreat-item navbar-retreat-link" %>
 
     <!-- Avatar with dropdown menu -->
     <div class="navbar-retreat-item">
@@ -21,12 +17,12 @@
         <ul class="dropdown-menu dropdown-menu-right navbar-retreat-dropdown-menu">
           <li><a href="#">Profile</a></li>
           <li><a href="#">Dashboard</a></li>
+
           <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
         </ul>
       </div>
     </div>
   </div>
-
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-retreat-item hidden-md hidden-lg">
     <div class="dropdown">
@@ -36,6 +32,7 @@
         <li><a href="#">Other one</a></li>
         <li><a href="#">Other one</a></li>
       </ul>
+
 
       <% else %>
 
@@ -47,3 +44,6 @@
     </div>
   </div>
 </div>
+
+
+
