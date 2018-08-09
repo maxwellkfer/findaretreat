@@ -1,4 +1,9 @@
 import "bootstrap";
-import "daterangepicker";
+
+/*myTabs.forEach( (tab) => {
+      tab.classList.remove("active");
+    }*/
+
+
 
 
