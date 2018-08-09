@@ -4,6 +4,3 @@ import "bootstrap";
       tab.classList.remove("active");
     }*/
 
-
-
-

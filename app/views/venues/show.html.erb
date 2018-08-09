@@ -4,7 +4,11 @@
       <h1><%= @venue.name.capitalize %></h1>
     </div>
     <div class="col-xs-1 col-xs-offset-2">
-      <a class="btn btn-success btn-book">book now</a>
+      <div class= btn btn-success btn-book>
+        <%= link_to 'book now', '#bookingmodal', 'data-toggle' => 'modal', class: 'btn' %>
+      </div>
+
+
     </div>
     <% if @venue.photo_url %>
       <% photo = cl_image_path(@venue.photo_url) %>
@@ -33,4 +37,5 @@
     </div>
   </div>
 </div>
+
 

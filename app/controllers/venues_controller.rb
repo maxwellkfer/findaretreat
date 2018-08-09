@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
   def index
-    if params[:category]
-      @venues = Venue.joins(:category).where("categories.name LIKE ?", "%#{params[:category]}%")
+    if params[:query].present?
+      @venues = Venue.global_search(params[:query])
     else
       @venues = Venue.all
     end
@@ -9,6 +9,7 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
