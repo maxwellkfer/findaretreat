@@ -6,16 +6,14 @@ class VenuesController < ApplicationController
       @venues = Venue.all
     end
   end
-
   def show
+    @user = current_user
     @venue = Venue.find(params[:id])
     @booking = Booking.new
   end
-
   def new
     @venue = Venue.new
   end
-
   def create
     @venue = Venue.new(venue_params)
     @venue.user = current_user
@@ -25,27 +23,23 @@ class VenuesController < ApplicationController
       render :new
     end
   end
-
   def edit
-    @venue = Venue.find(params[:id])
+    # make sure only owner can change this
+    @venue = current_user.venues.find(params[:id])
   end
-
   def update
     @venue = Venue.find(params[:id])
+    @venue.user = current_user
     @venue.update(venue_params)
     redirect_to venue_path
   end
-
   def destroy
     @venue= Venue.find(params[:id])
     @venue.destroy
     redirect_to venues_path
   end
-
   private
-
   def venue_params
     params.require(:venue).permit(:name, :address, :email, :description, :price, :photo_cache, :category_id, :photo)
   end
-
 end
