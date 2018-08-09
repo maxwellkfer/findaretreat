@@ -1,6 +1,7 @@
-<%= simple_form_for('', url: venues_path, method: :get) do |f| %>
-  <%= f.input :category, label: false %>
-  <%#= = f.input :date, input_html: { class: "daterange" }, as: :string
- %>
-  <%#= f.submit 'Search' %>
+<%= form_tag venues_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a venue"
+  %>
 <% end %>
