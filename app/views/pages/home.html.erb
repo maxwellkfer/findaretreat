@@ -25,13 +25,15 @@
         <% @venues = Venue.all %>
         <% @venues[0..3].each do |venue| %>
         <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="venue-card">
-            <%= link_to cl_image_tag(venue.photo_url, width: 200, height: 150, crop: :fill), venue_path(venue), class: "card-img" %>
-            <div class="card-category"><%= venue.category.name %></div>
-            <div class="card-description"><%= venue.description.truncate_words(10) %></div>
-            <div class="card-name"><%= venue.name %></div>
-            <div class="card-price"><%= venue.price %> €</div>
-          </div>
+          <%= link_to venue_path(venue) do %>
+            <div class="venue-card">
+              <%= cl_image_tag(venue.photo_url, width: 200, height: 150, crop: :fill, class: "card-img") %>
+              <div class="card-category"><%= venue.category.name %></div>
+              <div class="card-description"><%= venue.description.truncate_words(10) %></div>
+              <div class="card-name"><%= venue.name %></div>
+              <div class="card-price"><%= venue.price %> €</div>
+            </div>
+          <% end %>
         </div>
         <% end %>
       </div>
