@@ -12,11 +12,31 @@
     <!-- Copy/paste your banner here -->
     <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_url "background.jpg" %>');">
       <div class="banner-content">
-        <h1>(Re) treat Yourself </h1>
-        <h2>Be in silence for a few days.</h1>
+        <h1>(Re) treat Yourself,</h1>
+        <h3>Be in silence for a few days.</h3>
         <p></p>
         <%= render 'venues/search_form' %>
       </div>
     </div>
+  <div class="container">
+    <h1>Find peace</h1>
+    <div class="cards">
+      <div class="row">
+        <% @venues = Venue.all %>
+        <% @venues.each do |venue| %>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="venue-card">
+            <%= link_to cl_image_tag(venue.photo_url, width: 200, height: 150, crop: :fill), venue_path(venue), class: "card-img" %>
+            <div class="card-category"><%= venue.category.name %></div>
+            <div class="card-description"><%= venue.description.truncate_words(10) %></div>
+            <div class="card-name"><%= venue.name %></div>
+            <div class="card-price"><%= venue.price %> €</div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
   </body>
 </html>
