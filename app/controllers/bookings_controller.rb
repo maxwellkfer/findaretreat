@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    # assign user to the booking
     if @booking.save
       booking_path
     else
