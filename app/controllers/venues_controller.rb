@@ -1,5 +1,15 @@
 class VenuesController < ApplicationController
   def index
+    @venues = Venue.where.not(latitude: nil, longitude: nil)
+
+    @markers = @venues.map do |venue|
+      {
+        lat: venue.latitude,
+        lng: venue.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/venues/map_box", locals: { venue: venue }) }
+      }
+    end
+
     if params[:query].present?
       @venues = Venue.global_search(params[:query])
     else
