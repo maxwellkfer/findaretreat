@@ -23,7 +23,7 @@
     <div class="cards">
       <div class="row">
         <% @venues = Venue.all %>
-        <% @venues.each do |venue| %>
+        <% @venues[0..3].each do |venue| %>
         <div class="col-xs-12 col-sm-6 col-md-3">
           <div class="venue-card">
             <%= link_to cl_image_tag(venue.photo_url, width: 200, height: 150, crop: :fill), venue_path(venue), class: "card-img" %>
@@ -36,6 +36,32 @@
         <% end %>
       </div>
     </div>
+    <h1>Their experience</h1>
+
+    <div class="cards">
+      <div class="row">
+
+        <div class="col-xs-12 col-sm-6">
+          <div class="testimonial-card">
+
+            <div class="card-mec">Philippe</div>
+            <div class="card-cont">"I moved here in May and so far I love it. The staff has been wonderful to me and my family and I always feel welcomed anytime I visit."</div>
+
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="testimonial-card">
+
+            <div class="card-mec">Manu</div>
+            <div class="card-cont">"Living here has been a wonderful experience. The property is well kept, and beautiful, and the staff is very professional and friendly."</div>
+          </div>
+
+          </div>
+
+      </div>
+    </div>
+
+
   </div>
 
   </body>
