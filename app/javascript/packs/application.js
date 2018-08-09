@@ -1,6 +1,2 @@
 import "bootstrap";
-
-/*myTabs.forEach( (tab) => {
-      tab.classList.remove("active");
-    }*/
-
+import { datepicker } from '../components/datepicker';
