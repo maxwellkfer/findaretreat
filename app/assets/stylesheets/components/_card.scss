@@ -75,7 +75,7 @@
     align-items: center;
     flex-direction: column;
     width: 355px;
-    height: 160px;
+    height: 180px;
     margin: 20px auto;
     border-radius: 5px;
     background: #fafafa;
@@ -90,16 +90,18 @@
   left: 20px;
   color: #4a9da5;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .card-cont {
   position: absolute;
-  margin: 0px 10px;
+  margin-left: 10px;
+  margin-right: 40px;
   font-size: 14px;
   top: 60px;
   text-align: left;
   color: grey;
   font-style: italic;
+  text-align: justify;
 }
 
