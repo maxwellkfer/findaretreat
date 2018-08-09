@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.4.4'
 
+gem 'pg_search'
 gem 'cloudinary'
-gem 'dotenv-rails', groups: [:development, :test]
 gem 'devise'
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'

@@ -8,4 +8,16 @@ class Venue < ApplicationRecord
   validates :email, presence: true
   validates :email, presence: true
   validates :name, presence: true
+
+  include PgSearch
+
+  pg_search_scope :global_search,
+    against: [ :name, :description ],
+    associated_against: {
+      category: [ :name ],
+      user: [ :first_name, :last_name ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 end
