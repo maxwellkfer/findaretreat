@@ -8,15 +8,18 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
   end
+
   def create
     @booking = Booking.new(booking_params)
-    # assign user to the booking
+    @booking.user = current_user
+    @booking.venue = Venue.find(params[:venue_id])
     if @booking.save
-      booking_path
+      redirect_to venue_path(@booking.venue), notice: "Booking Done"
     else
-      render user_bookings_path
+      redirect_to venue_path(@booking.venue), alert: "Please fill out all fields"
     end
   end
+
   def edit
     @booking = Booking.find(params[:id])
   end
@@ -32,6 +35,6 @@ class BookingsController < ApplicationController
   end
   private
   def booking_params
-    params.require(:booking).permit(:name, :address, :email, :description, :price)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end

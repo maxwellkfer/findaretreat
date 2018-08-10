@@ -4,43 +4,50 @@
       <h1><%= @venue.name.capitalize %></h1>
     </div>
     <div class="col-xs-1 col-xs-offset-2">
-      <div class= btn btn-success btn-book>
-        <%= link_to 'book now', '#bookingmodal', 'data-toggle' => 'modal', class: 'btn' %>
-      </div>
-
-
+      <% if user_signed_in? %>
+        <button type="button" class="btn btn-primary trigger-btn" data-toggle="modal" data-target="#exampleModal">
+          Book
+        </button>
+        <%= render 'shared/bookingmodal' %>
+      <% else %>
+        <%= link_to "Book", new_user_session_path, class: "btn btn-primary trigger-btn" %>
+      <% end %>
     </div>
     <% if @venue.photo_url %>
-      <% photo = cl_image_path(@venue.photo_url) %>
+    <% photo = cl_image_path(@venue.photo_url) %>
     <% else %>
-      <% photo = "https://tse2.mm.bing.net/th?id=OIP.--WIa0qH3fLeoTo2E7uHigHaE8&pid=Api" %>
+    <% photo = "https://tse2.mm.bing.net/th?id=OIP.--WIa0qH3fLeoTo2E7uHigHaE8&pid=Api" %>
     <% end %>
-
-      <div class="col-xs-12">
-       <div class="show-banner" style="background-image: url('<%= photo %>')">
-          <div class="show-banner-price">
-            <h3><%= @venue.price %>€ / day</h3>
-          </div>
-        </div>
-      </div>
     <div class="col-xs-12">
-      <div class="venue-show-description">
-        <p><%= @venue.description%></p>
+     <div class="show-banner" style="background-image: url('<%= photo %>')">
+      <div class="show-banner-price">
+        <h3><%= @venue.price %>€ / day</h3>
       </div>
     </div>
-    <div class="col-xs-12">
-      <div class= "venue-show-footer">
-        <div class="venue-contact-details"><h4> Contact details </h4></div>
-        <div class="venue-email"><p><%= @venue.email %></p></div>
-        <div class="venue-address"><p><%= @venue.address %></p></div>
-      </div>
+  </div>
+  <div class="col-xs-12">
+    <div class="venue-show-description">
+      <p><%= @venue.description%></p>
     </div>
 
   </div>
 
-  <%= @venue.address  %>
+  <div class="col-xs-12">
+    <div class= "venue-show-footer">
+      <div class="venue-contact-details"><h4> Contact details </h4></div>
+      <div class="venue-email"><p><%= @venue.email %></p></div>
+      <div class="venue-address"><p><%= @venue.address %></p></div>
+    </div>
+  </div>
+</div>
 
-    <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@venue.address}" %>
+
+  <div class="map-center"
+    id="map"
+    style="width: 70%;
+    height: 500px;"
+    data-markers="<%= @markers.to_json %>"
+  ></div>
 
 
 </div>
