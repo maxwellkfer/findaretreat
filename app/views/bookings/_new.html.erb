@@ -1,0 +1,7 @@
+<% simple_form_for [@booking] do |f| %>
+  <%= f.button "",type:"button", id: "cnt-down", as: "counter-btn" %>
+  <%= f.input :guests, type: "text", id:"guestNo", value:"2" %>
+  <%= f.button "", type:"button", id: "cnt-up", as: "counter-btn" %>
+  <%= f.input :start_date, label:"ARRIVAL", type:"text", onfocus:"(this.type='date')", onblur:"(this.type='text')", placeholder:"05/03/2018"%>
+  <%= f.input :end_date, label:"DEPARTURE", type:"text", onfocus:"(this.type='date')", onblur:"(this.type='text')", placeholder:"10/11/2018"%>
+<% end %>
