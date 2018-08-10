@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    # assign user to the booking
+    @booking.user = current_user
     if @booking.save
       booking_path
     else
@@ -40,6 +40,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:name, :address, :email, :description, :price)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end

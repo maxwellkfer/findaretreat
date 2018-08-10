@@ -8,6 +8,6 @@ Rails.application.routes.draw do
 
   resources :users, except: [:index] do
     resources :venues, only: [:delete, :new, :create, :edit, :update]
-    resources :bookings
   end
+  resources :bookings
 end
