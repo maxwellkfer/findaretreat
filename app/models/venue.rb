@@ -2,7 +2,8 @@ class Venue < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   belongs_to :category
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
+  has_many :reviews, through: :bookings
   validates :address, presence: true
   validates :description, presence: true
   validates :email, presence: true

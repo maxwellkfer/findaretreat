@@ -57,7 +57,23 @@
         data-markers="<%= @markers.to_json %>"
       ></div>
 
+  <div class="row">
 
+      <div class= "review-section">
+      <h1><%= "#{@venue.name.capitalize}'s reviews" %></h1>
+      <h2><%= pluralize @venue.reviews.size, "review" %></h2>
+
+      <div id="reviews">
+        <% if @booking.review.blank? %>
+        Be the first to leave a review for <%= @venue.name %>
+        <% else %>
+        <% @venue.reviews.each do |review| %>
+        <%= render 'reviews/show', review: review %>
+        <% end %>
+        <% end %>
+      </div>
+
+  </div>
 
 
     </div>
@@ -65,6 +81,4 @@
   </div>
 
 </div>
-
-
 
