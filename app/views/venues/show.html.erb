@@ -35,14 +35,13 @@
         <div class="venue-address"><p><%= @venue.address %></p></div>
       </div>
     </div>
+
   </div>
 
-  <div class="map-center"
-    id="map"
-    style="width: 70%;
-    height: 500px;"
-    data-markers="<%= @markers.to_json %>"
-  ></div>
+  <%= @venue.address  %>
+
+    <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@venue.address}" %>
+
 
 </div>
 
