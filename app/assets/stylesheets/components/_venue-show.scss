@@ -1,15 +1,31 @@
 .venue-show-description {
-  padding-top: 30px;
-  padding-right: 40px;
-  padding-bottom: 30px;
-  padding-left: 40px;
-}
+  margin: 40px;
+  text-align: justify;
+  color: #696969;
+;}
 
 .venue-show-footer {
-  text-align: center
+  margin: 40px;
+  margin-top: 80px;
+  text-align: center;
+  color: #696969;
+
+}
+
+.venue-contact-details {
+  color: #4a9da5;
 }
 
 h1 {
   padding-bottom: 20px;
 }
 
+
+.row-intro {
+  position: relative;
+}
+
+.review-section {
+  margin-bottom: 100px;
+  color: #696969;
+}
