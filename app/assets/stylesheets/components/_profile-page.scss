@@ -14,7 +14,7 @@
   margin: 10vh auto;
   position: relative;
   border-radius: 5px;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  box-shadow: 0 19px 38px rgba(0,0,0,0.05), 0 15px 12px rgba(0,0,0,0.11);
 }
 .half{
   display: flex;
@@ -35,7 +35,7 @@
   position: absolute;
   right: 0;
   color: #FFF;
-  background-color: #f57ba2;
+  background-color: #4a9da5;
   border-radius: 0 5px 5px 0;
   align-items: flex-start;
 }
@@ -43,6 +43,7 @@
   margin-top: 1em;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  color: #4a9da5;
 }
 .info{
   width: 90%;
