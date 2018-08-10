@@ -52,17 +52,16 @@
     <% @bookings.each do |booking| %>
       <div class="cards">
         <div class="row half-left">
-          <% @venues.each do |venue| %>
           <div class="col-xs-12 col-sm-6 col-md-3">
             <%= link_to venue_path(booking.venue) do %>
             <div class="venue-card">
-              <%= cl_image_tag(venue.photo_url, width: 200, height: 150, crop: :fill, class: "card-img") %>
+              <%= cl_image_tag(booking.venue.photo_url, width: 200, height: 150, crop: :fill, class: "card-img") %>
               <div class="card-category"><%= booking.start_date %></div>
               <div class="card-description"><%= booking.end_date.truncate_words(10) %></div>
               <div class="card-name"><%= booking.venue.name %></div>
               <div class="card-price"><%= booking.venue.price %> €</div>
             </div>
-            <% end %>
+
           </div>
           <% end %>
         </div>
