@@ -1,60 +1,68 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-8">
-      <h1><%= @venue.name.capitalize %></h1>
-    </div>
-    <div class="col-xs-1 col-xs-offset-2">
+
+  <div class="row-intro">
+
+    <div class="booking-btn">
       <% if user_signed_in? %>
         <button type="button" class="btn btn-primary trigger-btn" data-toggle="modal" data-target="#exampleModal">
           Book
         </button>
-        <%= render 'shared/bookingmodal' %>
-      <% else %>
+        <%= render 'bookings/new' %>
+        <% else %>
         <%= link_to "Book", new_user_session_path, class: "btn btn-primary trigger-btn" %>
       <% end %>
     </div>
-    <% if @venue.photo_url %>
-    <% photo = cl_image_path(@venue.photo_url) %>
-    <% else %>
-    <% photo = "https://tse2.mm.bing.net/th?id=OIP.--WIa0qH3fLeoTo2E7uHigHaE8&pid=Api" %>
-    <% end %>
-    <div class="col-xs-12">
-     <div class="show-banner" style="background-image: url('<%= photo %>')">
-      <div class="show-banner-price">
-        <h3><%= @venue.price %>€ / day</h3>
-      </div>
-    </div>
-  </div>
-  <div class="col-xs-12">
-    <div class="venue-show-description">
-      <p><%= @venue.description%></p>
-    </div>
 
   </div>
 
-  <div class="col-xs-12">
-    <div class= "venue-show-footer">
-      <div class="venue-contact-details"><h4> Contact details </h4></div>
-      <div class="venue-email"><p><%= @venue.email %></p></div>
-      <div class="venue-address"><p><%= @venue.address %></p></div>
-    </div>
-  </div>
-</div>
+  <h1><%= @venue.name.capitalize %></h1>
 
-
-  <div class="map-center"
-  id="map"
-  style="width: 70%;
-  height: 500px;"
-  data-markers="<%= @markers.to_json %>"
-  ></div>
   <div class="row">
-    <div class="col-xs-12">
-      <div class= "review-section"
+
+    <div class="col-xs-12 col-sm-8">
+
+      <% if @venue.photo_url %>
+      <% photo = cl_image_path(@venue.photo_url) %>
+      <% else %>
+      <% photo = "https://tse2.mm.bing.net/th?id=OIP.--WIa0qH3fLeoTo2E7uHigHaE8&pid=Api" %>
+      <% end %>
+
+      <div class="show-banner" style="background-image: url('<%= photo %>')">
+        <div class="show-banner-price">
+          <h3><%= @venue.price %>€ / day</h3>
+        </div>
+      </div>
+
+      <%= link_to "Edit", edit_venue_path(@venue), class: "btn btn-primary" %>
+      <%= link_to "Delete", venue_path, method: :delete, class: "btn btn-danger" %>
+
+      <div class="venue-show-description">
+        <p><%= @venue.description%></p>
+      </div>
+
+
+      <div class= "venue-show-footer">
+        <div class="venue-contact-details"><h4> Contact details </h4></div>
+        <div class="venue-email"><p><%= @venue.email %></p></div>
+        <div class="venue-address"><p><%= @venue.address %></p></div>
+      </div>
+
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+      <div
+        id="map"
+        style="width: 100%;
+        height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+      ></div>
+
+  <div class="row">
+
+      <div class= "review-section">
       <h1><%= "#{@venue.name.capitalize}'s reviews" %></h1>
       <h2><%= pluralize @venue.reviews.size, "review" %></h2>
-    </div>
-    <div class="col-xs-12">
+
       <div id="reviews">
         <% if @booking.review.blank? %>
         Be the first to leave a review for <%= @venue.name %>
@@ -64,12 +72,13 @@
         <% end %>
         <% end %>
       </div>
-    </div>
+
   </div>
 
 
+    </div>
 
-<%= link_to "edit", edit_venue_path(@venue) %>
-<%= link_to "destroy", venue_path, method: :delete %>
+  </div>
 
 </div>
+
