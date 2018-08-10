@@ -44,12 +44,6 @@ body {
   display: none !important;
 }
 
-.hidden-2 {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0.92);
-  transform-origin: left center;
-}
 
 #date-picker-section {
   padding-top: 80px; padding-bottom: 80px;
@@ -57,11 +51,8 @@ body {
 }
 
 #date-picker-container {
-  margin: 0 auto;
   padding: 40px;
-  background: white;
   max-width: 500px;
-  box-shadow: $drop-shadow-large;
 }
 
 #date-picker-title {
@@ -70,6 +61,7 @@ body {
 }
 
 #date-picker-dates {
+  position: relative;
   background: $lightgray;
   padding: 10px;
   margin-bottom: 30px;
@@ -131,10 +123,12 @@ body {
 }
 
 #date-picker-modal {
+  top: 50px !important;
+  right: 500px !important;
   width: 310px;
   box-shadow: $drop-shadow-modal;
   padding: 15px;
-  position: absolute;
+  position: absolute !important;
   overflow: hidden;
   user-select: none;
   transition: transform 0.1s;
