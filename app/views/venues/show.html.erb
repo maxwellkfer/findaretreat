@@ -56,12 +56,20 @@
     </div>
     <div class="col-xs-12">
       <div id="reviews">
-        <% if @booking.review.blank? %>
-        Be the first to leave a review for <%= @venue.name %>
+        <% if @venue.reviews.empty? %>
+          Be the first to leave a review for <%= @venue.name %>
         <% else %>
-        <% @venue.reviews.each do |review| %>
-        <%= render 'reviews/show', review: review %>
+          <% @venue.reviews.each do |review| %>
+
+           <p><%= review.content %></p>
+          <% end %>
         <% end %>
+      <br><br>
+            <% unless Booking.where(user: current_user, venue: @venue).empty? %>
+               <%= simple_form_for([@venue, Booking.where(user: current_user, venue: @venue).last , @review ]) do |form| %>
+                <%= form.input :content, label: "Add Review", as: :text %>
+                <%= form.button :submit %>
+            <% end %>
         <% end %>
       </div>
     </div>

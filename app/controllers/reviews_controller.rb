@@ -1,10 +1,10 @@
 class ReviewsController < ApplicationController
   def create
-    @venue = Venue.find(params[:venue_id])
+    @booking = Booking.find(params[:booking_id])
     @review = Review.new(review_params)
-    @review.venue = @venue
+    @review.booking = @booking
     if @review.save
-      redirect_to venue_path(@venue)
+      redirect_to @booking.venue
     else
       render 'venues/show'
     end
