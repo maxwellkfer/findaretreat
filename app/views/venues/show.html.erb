@@ -56,34 +56,34 @@
         height: 600px;"
         data-markers="<%= @markers.to_json %>"
       ></div>
+    </div>
+  </div>
 
-  <div class="row">
+  <div class="row-review">
+
+    <div class="col-xs-12">
 
       <div class= "review-section">
-      <h1><%= "#{@venue.name.capitalize}'s reviews" %></h1>
-      <h2><%= pluralize @venue.reviews.size, "review" %></h2>
+        <h1><%= "#{@venue.name.capitalize}'s reviews" %></h1>
+        <h2><%= pluralize @venue.reviews.size, "review" %></h2>
 
-      <div id="reviews">
-        <% if @venue.reviews.empty? %>
-          Be the first to leave a review for <%= @venue.name %>
-        <% else %>
-          <% @venue.reviews.each do |review| %>
-
-           <p><%= review.content %></p>
-          <% end %>
-        <% end %>
-      <br><br>
-            <% unless Booking.where(user: current_user, venue: @venue).empty? %>
-               <%= simple_form_for([@venue, Booking.where(user: current_user, venue: @venue).last , @review ]) do |form| %>
-                <%= form.input :content, label: "Add Review", as: :text %>
-                <%= form.button :submit %>
+        <div id="reviews">
+          <% if @venue.reviews.empty? %>
+            Be the first to leave a review for <%= @venue.name %>
+          <% else %>
+            <% @venue.reviews.each do |review| %>
+              <p><%= review.content %></p>
             <% end %>
-        <% end %>
-      </div>
-    </div>
+          <% end %>
 
+          <% unless Booking.where(user: current_user, venue: @venue).empty? %>
+            <%= simple_form_for([@venue, Booking.where(user: current_user, venue: @venue).last , @review ]) do |form| %>
+              <%= form.input :content, label: "Add Review", as: :text %>
+              <%= form.button :submit %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-
 
     </div>
 
