@@ -8,15 +8,18 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
   end
+
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    @booking.venue = Venue.find(params[:venue_id])
     if @booking.save
-      booking_path
+      redirect_to venue_path(@booking.venue), notice: "Booking Done"
     else
-      render user_bookings_path
+      redirect_to venue_path(@booking.venue), alert: "Please fill out all fields"
     end
   end
+
   def edit
     @booking = Booking.find(params[:id])
   end

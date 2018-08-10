@@ -4,9 +4,14 @@
       <h1><%= @venue.name.capitalize %></h1>
     </div>
     <div class="col-xs-1 col-xs-offset-2">
-      <button type="button" class="btn btn-primary trigger-btn" data-toggle="modal" data-target="#exampleModal">
-        Book
-      </button>
+      <% if user_signed_in? %>
+        <button type="button" class="btn btn-primary trigger-btn" data-toggle="modal" data-target="#exampleModal">
+          Book
+        </button>
+        <%= render 'shared/bookingmodal' %>
+      <% else %>
+        <%= link_to "Book", new_user_session_path, class: "btn btn-primary trigger-btn" %>
+      <% end %>
     </div>
     <% if @venue.photo_url %>
     <% photo = cl_image_path(@venue.photo_url) %>
