@@ -1,10 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
-
 $green: #8DFEE1;
 $grey: #EBF3F5;
 $orange: #FEA88D;
 $color1: #888;
-
 .form-wrap {
   position: absolute;
   text-align: center;
@@ -20,7 +18,6 @@ $color1: #888;
     margin-bottom: 10px;
   }
 }
-
 input {
   padding: 15px 10px;
   border: none;
@@ -31,30 +28,25 @@ input {
   height: 45px;
   outline: $green;
 }
-
 input[type=date]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     display: none;
 }
-
 #guestNo {
   width: 80px;
   margin: 0 20px;
   text-align: center;
 }
-
 input[type="date"] {
   &:webkit-inner-spin-button {
     display: none;
   }
 }
-
 label {
   padding-bottom: 10px;
   display: inline;
   float: left;
 }
-
 .counter-btn-book {
   position: relative;
   display: inline-block;
@@ -78,11 +70,9 @@ label {
     box-shadow: 1px 3px 20px rgba(#111, .3);
   }
 }
-
 .guests {
   margin: 10px;
 }
-
 .dates {
   .arrival {
     display: inline-block;
@@ -95,7 +85,6 @@ label {
     width: 45%;
   }
 }
-
 .btn-book {
   border: none;
   padding: 10px;
@@ -114,9 +103,8 @@ label {
     background: darken($orange, 5%);
   }
 }
-
 .trigger-btn {
-  top: 180px;
-  position: relative;
-  left: 97px;
+  top: 150px;
+  position: absolute;
+  right: 120px;
 }
