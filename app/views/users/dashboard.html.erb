@@ -1,0 +1,72 @@
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-venues-tab" data-toggle="pill" href="#pills-venues" role="tab" aria-controls="pills-venues" aria-selected="false">Venues</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-bookings-tab" data-toggle="pill" href="#pills-bookings" role="tab" aria-controls="pills-bookings" aria-selected="false">Bookings</a>
+  </li>
+</ul>
+
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade active in" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+    <div class="profile-dash">
+      <div class="half left">
+        <%= image_tag("https://media.pri.org/s3fs-public/styles/story_main/public/dalai_lama_10_15_2012.jpeg?itok=wvuNtWci", id:"profile-pic") %>
+        <span class="name">
+          <%= @user.first_name%>
+        </span>
+      </div>
+      <div class="half right">
+        <div class="info">
+          <span class="title">About </span>
+          <i class="desc">Landing hands since 96'</i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="pills-venues" role="tabpanel" aria-labelledby="pills-venues-tab">
+    <div class="cards">
+      <div class="row half-left">
+        <% @venues.each do |venue| %>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <%= link_to venue_path(venue) do %>
+          <div class="venue-card">
+            <%= cl_image_tag(venue.photo_url, width: 200, height: 150, crop: :fill, class: "card-img") %>
+            <div class="card-category"><%= venue.category.name %></div>
+            <div class="card-description"><%= venue.description.truncate_words(10) %></div>
+            <div class="card-name"><%= venue.name %></div>
+            <div class="card-price"><%= venue.price %> €</div>
+          </div>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="pills-bookings" role="tabpanel" aria-labelledby="pills-bookings-tab">
+    <% @bookings.each do |booking| %>
+      <div class="cards">
+        <div class="row half-left">
+          <% @venues.each do |venue| %>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <%= link_to venue_path(booking.venue) do %>
+            <div class="venue-card">
+              <%= cl_image_tag(venue.photo_url, width: 200, height: 150, crop: :fill, class: "card-img") %>
+              <div class="card-category"><%= booking.start_date %></div>
+              <div class="card-description"><%= booking.end_date.truncate_words(10) %></div>
+              <div class="card-name"><%= booking.venue.name %></div>
+              <div class="card-price"><%= booking.venue.price %> €</div>
+            </div>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

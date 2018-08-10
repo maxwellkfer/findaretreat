@@ -1,4 +1,11 @@
 class UsersController < ApplicationController
+  def dashboard
+    if user_signed_in?
+      @venues = current_user.venues
+      @user = current_user
+      @bookings = @current_user.bookings
+    end
+  end
   def show
     @user = User.find(params[:id])
   end

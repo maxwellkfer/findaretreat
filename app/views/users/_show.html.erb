@@ -1,0 +1,14 @@
+<div class="profile">
+  <div class="half left">
+    <%= img_tag(@user.photo, id:"profile-pic") %>
+    <span class="name">
+      <%= @user.first_name @user.last_name %>
+    </span>
+  </div>
+  <div class="half right">
+    <div class="info">
+      <span class="title">About </span>
+      <i class="desc">Landing hands since 96'</i>
+    </div>
+  </div>
+</div>
